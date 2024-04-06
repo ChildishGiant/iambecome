@@ -1,6 +1,0 @@
-@font-face{font-family:Lora;src:url("./Lora-VariableFont_wght-A7BX6QGN.ttf")}html{color:#853503;background-color:#f3e6c0;font-family:Lora,Times New Roman,Times,serif}body{display:flex;justify-content:center;align-items:center;height:100%;margin:0;flex-direction:column}body #container{flex:1;display:flex;justify-content:center;align-items:center}body #answer{cursor:pointer;-webkit-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none;font-size:4em;padding:1em;text-align:center;font-weight:550}body #settings{width:100%;font-weight:700;display:flex;flex-flow:row nowrap;justify-content:space-between}body .group{margin:1em}body label{-webkit-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none}body a:visited,body a{color:#853503;text-decoration:none;cursor:pointer}
-/*!
- * * Copyright 202X Allie Law <allie@cloverleaf.app>
- * * SPDX-License-Identifier: GPL-3.0-or-later
- * */
-/*# sourceMappingURL=index.css.map */

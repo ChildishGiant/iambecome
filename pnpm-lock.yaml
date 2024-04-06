@@ -11,6 +11,9 @@ devDependencies:
   esbuild:
     specifier: ^0.20.2
     version: 0.20.2
+  esbuild-copy-static-files:
+    specifier: ^0.1.0
+    version: 0.1.0
   esbuild-plugin-sass:
     specifier: ^1.0.1
     version: 1.0.1(esbuild@0.20.2)
@@ -324,6 +327,10 @@ packages:
     hasBin: true
     dependencies:
       jake: 10.8.7
+    dev: true
+
+  /esbuild-copy-static-files@0.1.0:
+    resolution: {integrity: sha512-KlpmYqANA1t2nZavEdItfcOjJC6wbHA21v35HJWN32DddGTWKNNGDKljUzbCPojmpD+wAw8/DXr5abJ4jFCE0w==}
     dev: true
 
   /esbuild-plugin-sass@1.0.1(esbuild@0.20.2):
