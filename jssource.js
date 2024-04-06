@@ -12,7 +12,8 @@ const DEATHS = [
   'carbs',
   'facebook',
   'cheese',
-  'plastic'
+  'plastic',
+  'catgirl'
 ]
 
 const LEWD_DEATHS = [
@@ -42,6 +43,7 @@ const WORLDS = [
   'worlds',
   'women',
   'men',
+  'cuties',
   'metabolisms',
   'will to live',
   'ur mom',
@@ -60,13 +62,13 @@ const LEWD_WORLDS = [
 ]
 
 // if true, lewd results can be generated
-let lewd = true
+let lewd = false
 // if true, only lewd parts are used
-let lewd_only = false
+let lewdOnly = false
 
 // Returns a random element from an array
-Array.prototype.sample = function () {
-  return this[Math.floor(Math.random() * this.length)]
+const sample = function (array) {
+  return array[Math.floor(Math.random() * array.length)]
 }
 
 function changeText (text) {
@@ -82,49 +84,65 @@ function gen () {
   let possibleDestroyers = DESTROYERS
   let possibleWorlds = WORLDS
 
-  if (lewd_only) {
+  if (lewdOnly) {
     possibleDeaths = LEWD_DEATHS
     possibleDestroyers = LEWD_DESTROYERS
     possibleWorlds = LEWD_WORLDS
   } else
 
-  if (lewd) {
-    possibleDeaths = DEATHS.concat(LEWD_DEATHS)
-    possibleDestroyers = DESTROYERS.concat(LEWD_DESTROYERS)
-    possibleWorlds = WORLDS.concat(LEWD_WORLDS)
-  }
+    if (lewd) {
+      possibleDeaths = DEATHS.concat(LEWD_DEATHS)
+      possibleDestroyers = DESTROYERS.concat(LEWD_DESTROYERS)
+      possibleWorlds = WORLDS.concat(LEWD_WORLDS)
+    }
 
   // Select random parts for each but keep choosing new ones
   // till it's not the same as the last used
-  let newDeath = possibleDeaths.sample()
+  let newDeath = sample(possibleDeaths)
   while (newDeath === lastDeath) {
-    newDeath = possibleDeaths.sample()
+    newDeath = sample(possibleDeaths)
   }
   lastDeath = newDeath
 
-  let newDestroyer = possibleDestroyers.sample()
+  let newDestroyer = sample(possibleDestroyers)
   while (newDestroyer === lastDestroyer) {
-    newDestroyer = possibleDestroyers.sample()
+    newDestroyer = sample(possibleDestroyers)
   }
   lastDestroyer = newDestroyer
 
-  let newWorld = possibleWorlds.sample()
+  let newWorld = sample(possibleWorlds)
   // Don't use last used world or current death (no mum destroyer of mum, sorry)
-  while (newWorld === lastWorld || newWorld === newDeath || newWorld === newDeath.substring(0,newDeath.length - 1)) {
-    newWorld = possibleWorlds.sample()
+  while (newWorld === lastWorld || newWorld === newDeath || newWorld === newDeath.substring(0, newDeath.length - 1)) {
+    newWorld = sample(possibleWorlds)
   }
   lastWorld = newWorld
 
   return `I am become ${newDeath}, ${newDestroyer} of ${newWorld}`
 }
 
+/* Generate a share link for the user's Mastodon domain */
+function MastodonShare (text) {
+  // Make text safe to be in a url
+  text = encodeURIComponent(text)
+
+  // Get the Mastodon domain
+  const domain = window.prompt('Enter your Mastodon domain', 'mastodon.social')
+
+  if (domain === '' || domain === null) { return }
+
+  // Build the URL
+  const url = `https://${domain}/share?text=${text}`
+
+  // Open a window on the share page
+  window.open(url, '_blank')
+}
+
 // on load
 window.addEventListener('load', function () {
-
   // Add functionality to lewd toggle
   document.getElementById('lewd-toggle').addEventListener('change', () => {
     // Invert lewd
-    lewd=!lewd;
+    lewd = !lewd
     // Make a new thing
     changeText(gen())
   })
@@ -132,16 +150,23 @@ window.addEventListener('load', function () {
   // Add functionality to lewd only toggle
   document.getElementById('lewd-only-toggle').addEventListener('change', () => {
     // Invert lewd_only
-    lewd_only=!lewd_only;
+    lewdOnly = !lewdOnly
 
-    if (lewd_only) {
+    if (lewdOnly) {
       // if lewd_only, must be lewd
       lewd = true
       document.getElementById('lewd-toggle').checked = true
     }
-    
+
     // Make a new quote
     changeText(gen())
+  })
+
+  // Add functionality to mastodon share button
+  this.document.getElementById('share').addEventListener('click', () => {
+    const shareText = `${document.getElementById('answer').textContent}\n\nhttps://childishgiant.github.io/iambecome`
+
+    MastodonShare(shareText)
   })
 
   // Add onclick for quote
@@ -151,8 +176,7 @@ window.addEventListener('load', function () {
 
   // Make sure the inputs are in-step with the values
   document.getElementById('lewd-toggle').checked = lewd
-  document.getElementById('lewd-only-toggle').checked = lewd_only
-
+  document.getElementById('lewd-only-toggle').checked = lewdOnly
 
   // Generate one on load
   changeText(gen())

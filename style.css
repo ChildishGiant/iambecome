@@ -51,3 +51,9 @@ body {
 label {
   user-select: none;
 }
+
+a:visited, a {
+  color: #853503;
+  text-decoration: none;
+  cursor: pointer;
+}
