@@ -8,3 +8,9 @@ This is a website that makes phrases like the infamous misquoted "[Now I am beco
 ### What counts as lewd?
 
 Lewd is for things that are either sexual or offensive. "Queer", for example, is neither of those but "fucker" is.
+
+
+## Development
+If you want to add new words to the library then all you need to do is edit [strings.json](source/strings.json). 
+
+If you want to mess with the rest of the site you need to do `pnpm i` and then `pnpm run dev` to start a live reload server.
