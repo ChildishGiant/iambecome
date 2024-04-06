@@ -15,9 +15,16 @@
     "plastic",
     "catgirl",
     "barbie",
-    "frequent",
     "pesticide",
-    "steve"
+    "steve",
+    "chef",
+    "musician",
+    "poet",
+    "author",
+    "drunk",
+    "hungie",
+    "weeb",
+    "nerd"
   ],
 
   "destroyers":[
@@ -34,7 +41,16 @@
     "crafter",
     "digger",
     "investigator",
-    "perpetrator"
+    "perpetrator",
+    "cooker",
+    "caterer",
+    "creator",
+    "singer",
+    "player",
+    "writer",
+    "drinker",
+    "watcher",
+    "programmer"
   ],
 
   "worlds":[
@@ -58,19 +74,31 @@
     "mines",
     "holes",
     "crimes",
-    "dance"
+    "dance",
+    "banquets",
+    "dinners",
+    "songs",
+    "poems",
+    "stories",
+    "alcohol",
+    "tummies",
+    "anime",
+    "computers"
   ],
 
   "lewd":{
     "deaths":[
       "twink",
       "cock",
-      "tentacle dildo"
+      "tentacle dildo",
+      "boobs",
+      "pussy"
     ],
 
     "destroyers":[
       "fucker",
-      "fister"
+      "fister",
+      "rimmer"
     ],
     
     "worlds":[
@@ -78,7 +106,9 @@
       "cocks",
       "twinks",
       "drugs",
-      "brothels"
+      "brothels",
+      "boobs",
+      "pussies"
     ]
   }
 }
