@@ -1,0 +1,26 @@
+{
+  "name": "iambecome",
+  "version": "0.0.1",
+  "description": "",
+  "main": "source/index.js",
+  "scripts": {
+    "test": "npx http-server www",
+    "build": "node esbuild/build.mjs",
+    "dev": "node esbuild/dev.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChildishGiant/iambecome.git"
+  },
+  "author": "Allie Law",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ChildishGiant/iambecome/issues"
+  },
+  "homepage": "https://github.com/ChildishGiant/iambecome#readme",
+  "devDependencies": {
+    "ejs": "^3.1.9",
+    "esbuild": "^0.20.2",
+    "esbuild-plugin-sass": "^1.0.1"
+  }
+}

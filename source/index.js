@@ -1,65 +1,9 @@
-// Arrays of possible parts
-const DEATHS = [
-  'death',
-  'life',
-  'sugar',
-  'ur mom',
-  'ur dad',
-  'rusty ford fiesta',
-  'capitalism',
-  'queer',
-  'pasta',
-  'carbs',
-  'facebook',
-  'cheese',
-  'plastic',
-  'catgirl'
-]
-
-const LEWD_DEATHS = [
-  'twink',
-  'cock',
-  'tentacle dildo'
-]
-
-const DESTROYERS = [
-  'destroyer',
-  'hugger',
-  'kisser',
-  'puncher',
-  'crusher',
-  'consumer',
-  'frequenter',
-  'taker',
-  'licker'
-]
-
-const LEWD_DESTROYERS = [
-  'fucker',
-  'fister'
-]
-
-const WORLDS = [
-  'worlds',
-  'women',
-  'men',
-  'cuties',
-  'metabolisms',
-  'will to live',
-  'ur mom',
-  'ur dad',
-  'hope',
-  'microwave meals',
-  'cheese'
-]
-
-const LEWD_WORLDS = [
-  'asses',
-  'cocks',
-  'twinks',
-  'drugs',
-  'brothels'
-]
+/*
+ * Copyright 2024 Allie Law <allie@cloverleaf.app>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+import './styles.sass'
+import strings from './strings.json' assert {type: 'json'}
 
 // if true, lewd results can be generated
 let lewd = false
@@ -80,20 +24,20 @@ let lastDestroyer = ''
 let lastWorld = ''
 
 function gen () {
-  let possibleDeaths = DEATHS
-  let possibleDestroyers = DESTROYERS
-  let possibleWorlds = WORLDS
+  let possibleDeaths = strings.deaths
+  let possibleDestroyers = strings.destroyers
+  let possibleWorlds = strings.worlds
 
   if (lewdOnly) {
-    possibleDeaths = LEWD_DEATHS
-    possibleDestroyers = LEWD_DESTROYERS
-    possibleWorlds = LEWD_WORLDS
+    possibleDeaths = strings.lewd.deaths
+    possibleDestroyers = strings.lewd.destroyers
+    possibleWorlds = strings.lewd.worlds
   } else
 
     if (lewd) {
-      possibleDeaths = DEATHS.concat(LEWD_DEATHS)
-      possibleDestroyers = DESTROYERS.concat(LEWD_DESTROYERS)
-      possibleWorlds = WORLDS.concat(LEWD_WORLDS)
+      possibleDeaths = strings.deaths.concat(strings.lewd.deaths)
+      possibleDestroyers = strings.destroyers.concat(strings.lewd.destroyers)
+      possibleWorlds = strings.worlds.concat(strings.lewd.worlds)
     }
 
   // Select random parts for each but keep choosing new ones
@@ -165,8 +109,8 @@ window.addEventListener('load', function () {
 
   // Add functionality to mastodon share button
   this.document.getElementById('share').addEventListener('click', () => {
-    const shareText = `${document.getElementById('answer').textContent}\n\nhttps://childishgiant.github.io/iambecome`
-
+    // Share the generated quote with a link to this site
+    const shareText = `"${document.getElementById('answer').textContent}"\n\nhttps://childishgiant.github.io/iambecome`
     MastodonShare(shareText)
   })
 

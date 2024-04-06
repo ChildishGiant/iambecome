@@ -2,7 +2,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## What?
-This is a website that makes phrases like the infamous misquoted "[Now I am become death, destroyer of worlds](https://en.wikipedia.org/w/index.php?title=Now_I_am_become_Death,_the_destroyer_of_worlds)". There are toggles in the bottom to make the quotes more rude/offensive.
+This is a website that makes phrases like the infamous misquoted "[Now I am become death, destroyer of worlds](https://en.wikipedia.org/w/index.php?title=Now_I_am_become_Death,_the_destroyer_of_worlds)". There are toggles in the bottom to make the quotes more rude/offensive. They wont' always make sense but they might sometimes be funny.
 
 
 ### What counts as lewd?

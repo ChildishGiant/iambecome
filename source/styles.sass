@@ -1,0 +1,55 @@
+/*!
+ * Copyright 202X Allie Law <allie@cloverleaf.app>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+@font-face
+  font-family: 'Lora'
+  src: url('Lora-VariableFont_wght.ttf')
+
+$main-color: #853503
+$background-color: #f3e6c0
+
+html
+  color: $main-color
+  background-color: $background-color
+  font-family: 'Lora', 'Times New Roman', Times, serif
+
+body
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100%
+  margin: 0
+  flex-direction: column
+
+  #container
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
+
+  #answer
+    cursor: pointer
+    user-select: none
+    font-size: 4em
+    padding: 1em
+    text-align: center
+    font-weight: 550
+
+  #settings
+    width: 100%
+    font-weight: bold
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+
+  .group
+    margin: 1em
+
+  label
+    user-select: none
+
+  a:visited, a
+    color: $main-color
+    text-decoration: none
+    cursor: pointer
