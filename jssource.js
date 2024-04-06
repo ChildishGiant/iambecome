@@ -111,8 +111,9 @@ function gen () {
   lastDestroyer = newDestroyer
 
   let newWorld = sample(possibleWorlds)
-  // Don't use last used world or current death (no mum destroyer of mum, sorry)
-  while (newWorld === lastWorld || newWorld === newDeath || newWorld === newDeath.substring(0, newDeath.length - 1)) {
+
+  // Don't use last used world
+  while (newWorld === lastWorld) {
     newWorld = sample(possibleWorlds)
   }
   lastWorld = newWorld
